@@ -1,15 +1,16 @@
 <?php
     require_once 'model/user-model.php';
     require_once 'model/book-model.php';
+    require_once 'partials/connect.php';
     
-    $userModel = new UserModel(connect($host, $db, $user, $password));
-    $bookModel = new BookModel(connect($host, $db, $user, $password));
+    $userModel = new UserModel($pdo);
+    $bookModel = new BookModel($pdo);
 
 ?>
 
 <form action="form-handlers/review-form-handler.php" method="post">
     <div>
-        <label for="title">Recension: </label> <input type="text" name="review" id="review">
+        <label for="name">Recension: </label> <input type="text" name="review" id="review">
     </div>
     <div>
         <label for="userId">Användare: </label>
